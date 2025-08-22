@@ -1,7 +1,65 @@
-﻿namespace AdvancedSession4
+﻿using static AdvancedSession4.CheckNumbersCondition;
+
+namespace AdvancedSession4
 {
     internal class Program
     {
+        //public static List<int> FindOddNumbers(List<int> numbers)
+        //{
+        //    List<int> Result = new List<int>();
+        //    if (numbers is not  null )
+        //    {
+
+
+        //        foreach (var number in numbers)
+        //        {
+        //            if (number % 2 != 0)
+        //            {
+        //                Result.Add(number);
+        //            }
+        //        }
+
+        //    }
+        //    return Result;
+        //}
+
+        //public static List<int> FindEvenNumbers(List<int> numbers)
+        //{
+        //    List<int> Result = new List<int>();
+        //    if (numbers is not null)
+        //    {
+
+
+        //        foreach (var number in numbers)
+        //        {
+        //            if (number % 2 == 0)
+        //            {
+        //                Result.Add(number);
+        //            }
+        //        }
+
+        //    }
+        //    return Result;
+        //}
+        public static List<int> FindNumbers(List<int> numbers, numberCheckFunDelegate numberCheck)
+        {
+            List<int> Result = new List<int>();
+            if (numbers is not null)
+            {
+
+
+                foreach (var number in numbers)
+                {
+                    if (numberCheck.Invoke(number))
+                    {
+                        Result.Add(number);
+                    }
+                }
+
+            }
+            return Result;
+        }
+
         static void Main(string[] args)
         {
             #region Delegate 
@@ -41,17 +99,33 @@
 
             #region Delegate Example 2 with Genaric
             //bubble sort string  using delegate
-           string [] names = { "Alice", "Bob", "Charlie", "David" };
+            //string [] names = { "Alice", "Bob", "Charlie", "David" };
 
-            SortingTypesFunctionDelgate<string,bool> sortStrAsc= StortingTypes.SortStrAsc;
-            SortingTypesFunctionDelgate<string, bool> sortStrDesc = StortingTypes.SortStrDesc;
-            Helper<string>.BubbleSort(names, sortStrDesc);
-            foreach (var item in names)
+            // SortingTypesFunctionDelgate<string,bool> sortStrAsc= StortingTypes.SortStrAsc;
+            // SortingTypesFunctionDelgate<string, bool> sortStrDesc = StortingTypes.SortStrDesc;
+            // Helper<string>.BubbleSort(names, sortStrDesc);
+            // foreach (var item in names)
+            // {
+            //     Console.WriteLine(item);
+            // }
+
+
+
+            #endregion
+
+
+            #region Delegate Example 3
+           
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            numberCheckFunDelegate oddFunction = CheckNumbersCondition.CheckOdd;
+
+            numberCheckFunDelegate evenFunction = CheckNumbersCondition.CheckEven;
+           List<int> Numbers= FindNumbers(numbers, evenFunction);
+          
+            foreach (var item in Numbers)
             {
                 Console.WriteLine(item);
             }
-
-          
 
             #endregion
 
