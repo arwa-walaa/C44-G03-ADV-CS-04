@@ -98,36 +98,68 @@ namespace AdvancedSession4
 
 
             #region Delegate Example 3
-           
-           // List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-           // numberCheckFunDelegate oddFunction = CheckNumbersCondition.CheckOdd;
 
-           // numberCheckFunDelegate evenFunction = CheckNumbersCondition.CheckEven;
-           //List<int> Numbers= FindNumbers(numbers, evenFunction);
-          
-           // foreach (var item in Numbers)
-           // {
-           //     Console.WriteLine(item);
-           // }
+            // List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            // numberCheckFunDelegate oddFunction = CheckNumbersCondition.CheckOdd;
+
+            // numberCheckFunDelegate evenFunction = CheckNumbersCondition.CheckEven;
+            //List<int> Numbers= FindNumbers(numbers, evenFunction);
+
+            // foreach (var item in Numbers)
+            // {
+            //     Console.WriteLine(item);
+            // }
 
             #endregion
 
             #region Delegate Example 3 Genaric
 
-            List<double> numbers = new List<double> { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 };
-            numberCheckFunDelegate<double, bool> oddFunction = CheckNumbersCondition.CheckOddDouble;
+            //List<double> numbers = new List<double> { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 };
+            //numberCheckFunDelegate<double, bool> oddFunction = CheckNumbersCondition.CheckOddDouble;
 
-            numberCheckFunDelegate<double, bool> evenFunction = CheckNumbersCondition.CheckEvenDouble;
-            List<double> Numbers = CheckNumber<double>.FindNumbers(numbers, evenFunction);
+            //numberCheckFunDelegate<double, bool> evenFunction = CheckNumbersCondition.CheckEvenDouble;
+            //List<double> Numbers = CheckNumber<double>.FindNumbers(numbers, evenFunction);
 
-            foreach (double item in Numbers)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (double item in Numbers)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region built in Delegate
+            #region built-in Examples
+
+            #region Predicate
+
+            //Predicate<int> predicate;
+            //predicate = new Predicate<int>(CommonFunction.testNumber);
+            //predicate = CommonFunction.testNumber;
+            //Console.WriteLine(predicate.Invoke(5));
+
+            #endregion
+
+            #region FunC
+            //Func<int,string> func=CommonFunction.Cast;
+            //Console.WriteLine(func.Invoke(100));
+
+            #endregion
+
+            #region Action
+               Action action=CommonFunction.Print;
+               action();
+
+               Action<string> action1=CommonFunction.message;
+               action1.Invoke("Route");
+            #endregion
+
+            #endregion
 
             #endregion
 
             #endregion
+
+
         }
     }
 }
