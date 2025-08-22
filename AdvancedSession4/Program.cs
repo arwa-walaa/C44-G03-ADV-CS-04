@@ -174,16 +174,28 @@ namespace AdvancedSession4
 
             #region Lambda Expression
 
-            Predicate<int> predicate = number => number > 0;
-            Console.WriteLine(predicate.Invoke(5));
-            Func<int, string> func = number => number.ToString();
-            Console.WriteLine(func.Invoke(100));
-            Action<string> action = msg => Console.WriteLine($"Hello {msg}");
-            action.Invoke("Route");
-          
+            //Predicate<int> predicate = number => number > 0;
+            //Console.WriteLine(predicate.Invoke(5));
+            //Func<int, string> func = number => number.ToString();
+            //Console.WriteLine(func.Invoke(100));
+            //Action<string> action = msg => Console.WriteLine($"Hello {msg}");
+            //action.Invoke("Route");
+
             #endregion
 
+            #region Function Return Function [BCL .Net Framwork]
+            DelegateToction()(); 
 
+
+            #endregion
         }
+        #region Function Return Function
+
+        public static Action DelegateToction()
+        {
+           return delegate () { Console.WriteLine("Hello from Action Delegate"); };
+        }
+
+        #endregion
     }
 }
