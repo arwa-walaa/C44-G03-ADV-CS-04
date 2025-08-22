@@ -146,17 +146,30 @@ namespace AdvancedSession4
             #endregion
 
             #region Action
-               Action action=CommonFunction.Print;
-               action();
+            //Action action=CommonFunction.Print;
+            //action();
 
-               Action<string> action1=CommonFunction.message;
-               action1.Invoke("Route");
+            //Action<string> action1=CommonFunction.message;
+            //action1.Invoke("Route");
             #endregion
 
             #endregion
 
             #endregion
 
+            #endregion
+
+            #region Anonymous Method
+            Predicate<int> predicate = delegate (int number) { return number > 0; };
+            Console.WriteLine(predicate.Invoke(5));
+
+            Func<int, string> func = delegate (int number) { return number.ToString(); };
+            Console.WriteLine(func.Invoke(100));
+
+            Action<string> action = delegate (string msg) { Console.WriteLine($"Hello {msg}"); };
+            action.Invoke("Route");
+            Action actionNonGeneric = delegate () { Console.WriteLine("Hello from Action Delegate"); };
+            actionNonGeneric();
             #endregion
 
 

@@ -9,19 +9,16 @@ namespace AdvancedSession4
     internal class CommonFunction
     {
         #region Predicate
-        public static bool testNumber(int number)
-        {
-            return number > 0;
-        }
+        //public static bool testNumber(int number){return number > 0;}
 
 
         #endregion
 
         #region FunC
-        public static string Cast(int number)
-        {
-            return number.ToString();
-        }
+        //public static string Cast(int number)
+        //{
+        //    return number.ToString();
+        //}
 
 
         #endregion
