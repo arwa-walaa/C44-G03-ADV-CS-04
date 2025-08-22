@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace AdvancedSession4
 {
+    public delegate TResult numberCheckFunDelegate<in T, out TResult>(T item);
     internal class CheckNumbersCondition
     {
-        public delegate bool numberCheckFunDelegate (int item);
+       
 
         public static bool CheckOdd(int number)
         {
@@ -16,6 +17,17 @@ namespace AdvancedSession4
             return  number % 2 !=0 ;
         }
         public static bool CheckEven(int number)
+        {
+
+            return number % 2 == 0;
+        }
+
+        public static bool CheckOddDouble(double number)
+        {
+
+            return number % 2 != 0;
+        }
+        public static bool CheckEvenDouble(double number)
         {
 
             return number % 2 == 0;

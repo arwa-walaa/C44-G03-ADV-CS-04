@@ -41,24 +41,7 @@ namespace AdvancedSession4
         //    }
         //    return Result;
         //}
-        public static List<int> FindNumbers(List<int> numbers, numberCheckFunDelegate numberCheck)
-        {
-            List<int> Result = new List<int>();
-            if (numbers is not null)
-            {
-
-
-                foreach (var number in numbers)
-                {
-                    if (numberCheck.Invoke(number))
-                    {
-                        Result.Add(number);
-                    }
-                }
-
-            }
-            return Result;
-        }
+       
 
         static void Main(string[] args)
         {
@@ -116,13 +99,28 @@ namespace AdvancedSession4
 
             #region Delegate Example 3
            
-            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            numberCheckFunDelegate oddFunction = CheckNumbersCondition.CheckOdd;
+           // List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+           // numberCheckFunDelegate oddFunction = CheckNumbersCondition.CheckOdd;
 
-            numberCheckFunDelegate evenFunction = CheckNumbersCondition.CheckEven;
-           List<int> Numbers= FindNumbers(numbers, evenFunction);
+           // numberCheckFunDelegate evenFunction = CheckNumbersCondition.CheckEven;
+           //List<int> Numbers= FindNumbers(numbers, evenFunction);
           
-            foreach (var item in Numbers)
+           // foreach (var item in Numbers)
+           // {
+           //     Console.WriteLine(item);
+           // }
+
+            #endregion
+
+            #region Delegate Example 3 Genaric
+
+            List<double> numbers = new List<double> { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 };
+            numberCheckFunDelegate<double, bool> oddFunction = CheckNumbersCondition.CheckOddDouble;
+
+            numberCheckFunDelegate<double, bool> evenFunction = CheckNumbersCondition.CheckEvenDouble;
+            List<double> Numbers = CheckNumber<double>.FindNumbers(numbers, evenFunction);
+
+            foreach (double item in Numbers)
             {
                 Console.WriteLine(item);
             }
