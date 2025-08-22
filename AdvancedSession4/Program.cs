@@ -160,16 +160,27 @@ namespace AdvancedSession4
             #endregion
 
             #region Anonymous Method
-            Predicate<int> predicate = delegate (int number) { return number > 0; };
+            //Predicate<int> predicate = delegate (int number) { return number > 0; };
+            //Console.WriteLine(predicate.Invoke(5));
+
+            //Func<int, string> func = delegate (int number) { return number.ToString(); };
+            //Console.WriteLine(func.Invoke(100));
+
+            //Action<string> action = delegate (string msg) { Console.WriteLine($"Hello {msg}"); };
+            //action.Invoke("Route");
+            //Action actionNonGeneric = delegate () { Console.WriteLine("Hello from Action Delegate"); };
+            //actionNonGeneric();
+            #endregion
+
+            #region Lambda Expression
+
+            Predicate<int> predicate = number => number > 0;
             Console.WriteLine(predicate.Invoke(5));
-
-            Func<int, string> func = delegate (int number) { return number.ToString(); };
+            Func<int, string> func = number => number.ToString();
             Console.WriteLine(func.Invoke(100));
-
-            Action<string> action = delegate (string msg) { Console.WriteLine($"Hello {msg}"); };
+            Action<string> action = msg => Console.WriteLine($"Hello {msg}");
             action.Invoke("Route");
-            Action actionNonGeneric = delegate () { Console.WriteLine("Hello from Action Delegate"); };
-            actionNonGeneric();
+          
             #endregion
 
 
