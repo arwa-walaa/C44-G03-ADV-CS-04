@@ -24,12 +24,19 @@
 
 
             #region Using Built-in Delegate
-            Console.WriteLine("\n=== Using Built-in Func Delegate ===");
-            LibraryEngine.ProcessBooks(books, BookFunctions.GetTitle);
-            LibraryEngine.ProcessBooks(books, BookFunctions.GetAuthors);
-            LibraryEngine.ProcessBooks(books, BookFunctions.GetPrice);
+            //Console.WriteLine("\n=== Using Built-in Func Delegate ===");
+            //LibraryEngine.ProcessBooks(books, BookFunctions.GetTitle);
+            //LibraryEngine.ProcessBooks(books, BookFunctions.GetAuthors);
+            //LibraryEngine.ProcessBooks(books, BookFunctions.GetPrice);
             #endregion
-           
+
+            #region Using Anonymous Methods
+            Console.WriteLine("\n=== Using Anonymous Methods ===");
+            LibraryEngine.ProcessBooks(books, delegate (Book B) { return B.ISBN; });
+          
+            #endregion
+      
+
 
         }
     }
