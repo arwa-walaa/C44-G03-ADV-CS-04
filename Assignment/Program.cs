@@ -16,11 +16,20 @@
         };
             #region Using User Defined Delegate
 
-            Console.WriteLine("=== Using User Defined Delegate ===");
+            //Console.WriteLine("=== Using User Defined Delegate ===");
+            //LibraryEngine.ProcessBooks(books, BookFunctions.GetTitle);
+            //LibraryEngine.ProcessBooks(books, BookFunctions.GetAuthors);
+            //LibraryEngine.ProcessBooks(books, BookFunctions.GetPrice);
+            #endregion
+
+
+            #region Using Built-in Delegate
+            Console.WriteLine("\n=== Using Built-in Func Delegate ===");
             LibraryEngine.ProcessBooks(books, BookFunctions.GetTitle);
             LibraryEngine.ProcessBooks(books, BookFunctions.GetAuthors);
             LibraryEngine.ProcessBooks(books, BookFunctions.GetPrice);
             #endregion
+           
 
         }
     }

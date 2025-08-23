@@ -20,6 +20,13 @@ namespace Assignment
             }
         }
 
-      
+        // Using  Func Delegate 
+        public static void ProcessBooksBCL(List<Book> blist, Func<Book, string> fPtr)
+        {
+            foreach (Book B in blist)
+            {
+                Console.WriteLine(fPtr.Invoke(B));
+            }
+        }
     }
 }
